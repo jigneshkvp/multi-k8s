@@ -1,0 +1,12 @@
+FROM node:alpine
+
+ENV HTTP_PROXY "http://proxyseso.scania.com:8080/"
+ENV HTTPS_PROXY "http://proxyseso.scania.com:8080/"
+
+WORKDIR /app
+
+COPY ./package.json ./
+RUN npm install
+COPY . .
+
+CMD npm run dev
